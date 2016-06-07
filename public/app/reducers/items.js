@@ -3,7 +3,7 @@ import { ADD_ITEM, DELETE_ITEM, DELETE_ALL } from '../constants/actionTypes'
 
 const initialItems = Immutable.List([{name:'jone',num:1},{name:'object',num:2},{name:'mocha',num:3}])
 
-console.log(initialItems,initialItems.get(0));
+//console.log(initialItems,initialItems.get(2)); 
 
 export default function items(state = initialItems, action) {
     switch(action.type) {

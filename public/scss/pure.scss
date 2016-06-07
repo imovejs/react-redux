@@ -17,6 +17,12 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
     border-radius: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
+.button-success:hover,
+.button-error:hover,
+.button-warning:hover,
+.button-secondary:hover{
+	 box-shadow: 0 100px 100px rgba(0, 0, 2, 1);
+}
 
 .button-success {
     background: rgb(28, 184, 65); /* this is a green */
@@ -48,3 +54,15 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 .button-xlarge {
     font-size: 125%;
 }
+
+
+.form-control{
+	padding:5px;
+	input[type='text'],select{
+		padding:5px; 
+	}
+	label{
+		margin:0 15px;
+	} 
+}
+ 

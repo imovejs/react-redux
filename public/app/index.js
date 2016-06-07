@@ -7,9 +7,10 @@ import configureStore from './configureStore'
 
 const store = configureStore()
 
+console.log(store);
 
 function renderDevTools(store) {
-    //if (__DEBUG__) {
+    if (__DEBUG__) {
         let {DevTools, DebugPanel, LogMonitor} = require('redux-devtools/lib/react')
 
         return (
@@ -17,9 +18,9 @@ function renderDevTools(store) {
             <DevTools store={store} monitor={LogMonitor} />
             </DebugPanel>
         )
-    //}
+    }
 
-    //return null
+    return null
 }
 
 render(

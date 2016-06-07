@@ -1,6 +1,6 @@
 import  { ADD_ITEM, DELETE_ITEM, DELETE_ALL, FILTER_ITEM } from '../constants/actionTypes'
 
- 
+//远程获取数据放到action 
 
 export function addItem() {
     return dispatch => {
