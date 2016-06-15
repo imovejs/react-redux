@@ -1,0 +1,21 @@
+{
+  	"manifest_version":2,
+  	"name":"我的插件",
+  	"description":"我的插件",
+  	"version":"1.0",
+   
+  	"browser_action":{
+    	"default_icon":"images/appicon.jpg",
+    	"default_title":"我的插件",
+    	"default_popup":"page/popup.html"
+  	},
+    "content_scripts": [ {
+      "js": [ "js/lib/jquery.min.js", "js/console.js"],
+      "matches": [ "http://*/*", "https://*/*", "file:///*/*" ]
+    }],
+    "background": {
+      "scripts": [ "js/background.js" ]
+      //"scripts": "background/background.html"
+    },
+    "permissions": [ "contextMenus", "tabs" , "notifications"]
+}
