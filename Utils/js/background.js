@@ -8,17 +8,24 @@
 	\***************************/
 (function(global){
 	var current=localStorage["__current__"] || 0;
-	//创建右键菜单
-	var contextMenuId = chrome.contextMenus.create({
-		//"type"://["normal", "checkbox", "radio", "separator"] 
-		"title": "图像模糊处理",
-		"contexts": ["all"]  // ["all", "page", "frame", "selection", "link", "editable", "image", "video", "audio"]
-	});
+	var contexts=["page", "frame", "selection", "link", "editable", "image", "video", "audio", "browser_action"];
+	for(var i=0; i< contexts.length; i ++){ console.log(contexts[i]);
+		chrome.contextMenus.create({
+            id:contexts[i],
+            title: "图像模糊处理"+contexts[i],
+            contexts:[contexts[i]]  // ["all", "page", "frame", "selection", "link", "editable", "image", "video", "audio"]
+            //type:['radio']//"normal", "checkbox", "radio", or "separator"
+		});
+ 
+	}
+
+
 
 	//监听右键菜单，一旦被点击，则通知前台
-	chrome.contextMenus.onClicked.addListener(function (tab) {
-		 
-		var arr=["all", "page", "frame", "selection", "link", "editable", "image", "video", "audio"];
+	chrome.contextMenus.onClicked.addListener(function (object,tab,aa) {
+		chrome.extension.getBackgroundPage().createWindow();
+
+		var arr=["page", "frame", "selection", "link", "editable", "image", "video", "audio"];
 		// Send a message to the active tab
 		chrome.tabs.query({
 			active : true,
@@ -35,14 +42,17 @@
 		});
 	});
 
-	// 创建一个简单的文字通知：
-	global.notification=function(){ 
-		var notification = chrome.notifications.create(
-		  '48.png',  // icon url - can be relative
-		  'Hello!',  // notification title
-		  'Lorem ipsum...'  // notification body text
-		);
-		notification.show();
-	} 
-		
+
+    chrome.notifications.onClicked.addListener(function(a){
+        alert(a);
+    });
+
+    chrome.notifications.onButtonClicked.addListener(function(notificationId, buttonIndex) {
+        alert(notificationId+'_____'+buttonIndex);
+        chrome.notifications.getAll(function(notifications_obj){
+            console.log(notifications_obj);
+        });
+    });
+
+
 })(window)

@@ -3,19 +3,34 @@
   	"name":"我的插件",
   	"description":"我的插件",
   	"version":"1.0",
-   
+    "icons":{
+      "16":"images/appicon.jpg",
+      "32":"images/appicon.jpg",
+      "64":"images/appicon.jpg",
+      "128":"images/appicon.jpg"
+    },
   	"browser_action":{
     	"default_icon":"images/appicon.jpg",
     	"default_title":"我的插件",
     	"default_popup":"page/popup.html"
   	},
+    "options_page": "page/options.html",
+    "options_ui" : {
+      "page" : "page/options.html" ,
+      "chrome_style" : true
+    },
     "content_scripts": [ {
+      "matches": [ "http://*/*", "https://*/*", "file:///*/*" ],
       "js": [ "js/lib/jquery.min.js", "js/console.js"],
-      "matches": [ "http://*/*", "https://*/*", "file:///*/*" ]
+      "css":[
+        "css/context.css"
+      ]
     }],
     "background": {
-      "scripts": [ "js/background.js" ]
-      //"scripts": "background/background.html"
+      "scripts": [ "js/background.js","js/init.js" ]
+      //"page": "page/options.html"
     },
-    "permissions": [ "contextMenus", "tabs" , "notifications"]
+    "permissions": [ "contextMenus", "tabs" , "notifications"], //获得权限
+    "content_security_policy": "script-src 'self' https://www.baidu.com; object-src 'self'", //获取跨域请求数据
+    "web_accessible_resources": [ "page/options1.html" ]
 }

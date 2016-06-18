@@ -3,77 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Utils</title>
-	<style type="text/css"> 
-		 
-        .movejs_content{ background:#fff;  box-sizing:border-box;padding:0 20px; } 
-        .movejs_content input{ padding:5px; border:1px solid #ddd; width:50px; font-size:13px; font-weight:bold;} 
-        .movejs_content .movejs_warp_box{ padding:2px 0;  position:relative;text-align:center;   margin:0 auto;} 
-        .movejs_content .movejs_warp_box .movejs_btn{ text-shadow: 1px 1px 1px #666666;   margin:2px; background:#d33;   color:#fff; text-align:center; padding:5px;display:block; font-size:12px; border-radius:5px; text-decoration:none; box-shadow:0 0 5px #d09;} 
-        .movejs_content .movejs_warp_box .movejs_btn:hover{ background:#f60;} 
-        .movejs_content .movejs_warp_box p{color:#f78;font-size:11px;    font-family:微软雅黑;letter-spacing:-1px; } 
-        .movejs_content .movejs_warp_box p span{ margin-right:3px; background:#c38; color:#fff;  padding:0 10px; text-align:center;} 
-        .movejs_content .movejs_silde { left:0; bottom:0; position:absolute; transform: rotate(45deg); display:block; width:20px; height:20px; border-top:2px solid #ccc; border-left:2px solid #ccc; background:transparent;} 
-		
-		.customeCheckBox{
-			width: 25px;
-			position: relative;
-			margin:25px 20px 18px 20px;
-			display:inline-block;
-		}
-		.customeCheckBox label{				
-			cursor: pointer;
-			position: absolute;
-			width: 20px;
-			height: 20px;
-			top: 0;
-			left: 0;
-			background: #eee;
-			border:solid 1px #AEAEAE; 
-			border-radius :5px;
-		}
-		.customeCheckBox label::after{
-			opacity: 0.1;
-			content: '';
-			position: absolute;
-			width: 9px;
-			height: 5px;
-			background: transparent;
-			top: 4px;
-			left: 4px;
-		 
-			-webkit-transform: rotate(-45deg);
-			-moz-transform: rotate(-45deg);
-			-o-transform: rotate(-45deg);
-			-ms-transform: rotate(-45deg);
-			transform: rotate(-45deg);
-		}
-		.customeCheckBox input[type=checkbox]:checked + label::after {
-			border: 3px solid #F96052;
-			border-top: none;
-			border-right: none;
-			opacity: 1;
-		}
-		.customeCheckBox input[type=checkbox]:checked + label{
-			border: 1px solid #F96052;
-		}
-
-    </style>
+	<link rel="stylesheet" href="../css/popup.css" />
 </head>
 <body>
 	<div class="effcfn_box">
 		<div class="movejs_content">
 			<div class="movejs_warp_box">
 				<div>
-					<div class='customeCheckBox'>
-						<input type='checkbox' name='123' id='123' value='123' style='display:none;'/><label for='123'>开启</label>
-					</div>
-					<a href="javascript:;" class="movejs_btn startVote">开始点赞</a>
-					<a href="javascript:;" class="movejs_btn stopVote">停止点赞</a>
-					<a href="javascript:;" class="movejs_btn get">获取值</a>
-					<a href="javascript:;" class="movejs_btn setLenght">设置长度</a>
-					<a href="javascript:;" class="movejs_btn dislable">禁用事件</a>
+					<label for=""><div class='customeCheckBox'>
+						<input type='checkbox' name='che_open' id='123' value='123' style='display:none;'/><label for='123'></label>
+					</div>开启</label>
+					<a href="javascript:;" class="movejs_btn createMessage">添加通知</a>
+					<a href="javascript:;" class="movejs_btn clearMessage">清除通知</a>
+
 				</div>
-				<p><input type="text" id="m_v_j_s_size"></p>
 			</div> 
 		</div>
 	</div>
